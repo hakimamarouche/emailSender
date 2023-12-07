@@ -13,7 +13,6 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
-
 @Configuration
 public class SecurityConfig {
 
@@ -27,11 +26,6 @@ public class SecurityConfig {
         return new InMemoryClientRegistrationRepository(
                 // Add your client registrations here
         );
-    }
-
-    @Bean
-    public OAuth2UserAuthorityConverter userAuthorityConverter() {
-        return new DefaultOAuth2UserAuthorityConverter();
     }
 
     @Bean
