@@ -29,11 +29,8 @@ public class SecurityConfig {
     }
 
     @Bean
-    public OAuth2UserService<OAuth2UserRequest, OAuth2User> oAuth2UserService(
-            ClientRegistrationRepository clientRegistrationRepository,
-            UserDetailsService userDetailsService
-    ) {
+    public OAuth2UserService<OAuth2UserRequest, OAuth2User> oAuth2UserService() {
         DefaultOAuth2UserService delegate = new DefaultOAuth2UserService();
-        return new CustomOAuth2UserService(delegate, clientRegistrationRepository, userDetailsService);
+        return new CustomOAuth2UserService();
     }
 }

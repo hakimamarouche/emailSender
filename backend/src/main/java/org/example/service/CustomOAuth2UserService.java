@@ -8,16 +8,14 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestOperations;
 
 @Service
 public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
     public CustomOAuth2UserService(
-            DefaultOAuth2UserService delegate,
-            ClientRegistrationRepository clientRegistrationRepository,
-            UserDetailsService userDetailsService
     ) {
-        super.setAuthoritiesMapper(new OAuth2UserAuthorityMapper());
+        super.setRestOperations((RestOperations) new OAuth2UserAuthorityMapper());
     }
 
     @Override
