@@ -1,6 +1,8 @@
 package org.example.service;
 
+import org.example.pojo.JsonEmail;
+
 public interface EmailService {
-    void sendEmail();
+    void sendEmail(JsonEmail email);
 }
 
